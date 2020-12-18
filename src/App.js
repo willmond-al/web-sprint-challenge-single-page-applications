@@ -7,7 +7,10 @@ import PizzaOrder from './PizzaOrder'
 const initialFormValues = {
   name: "",
   size: "",
-  toppings: "",
+  pepperoni: false,
+  jalapenos: false,
+  mushrooms: false,
+  pinapple: false,
   instructions: ""
 }
 const App = () => {
@@ -25,9 +28,11 @@ const App = () => {
 
   const submitForm = () =>{
     const newOrder = {
-      name: formValues.name.trim(),
+      name: formValues.name,
       size: formValues.size,
-      toppings: formValues.toppings, 
+      toppings: ["pepperoni", "jalapenos", "mushrooms", "pinapple"].filter(
+        (topping) => formValues[topping]
+      ), 
       instructions: formValues.instructions
     }
     if(!newOrder.name || !newOrder.size || !newOrder.toppings || !newOrder.instructions) return
@@ -50,11 +55,12 @@ const App = () => {
         values={formValues}
         submit={submitForm}
         update={updateForm}>
+          </Pizza>
 
         {orders.map(order=>{
           return <PizzaOrder key={order.id} details={order}/>
         })}
-        </Pizza>
+        
       </Route>
       <Route path='/'>
         <Home/>
