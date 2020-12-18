@@ -89,7 +89,7 @@ export default function Pizza(props) {
         />
       </label>
 
-      <div className="order">
+      <div id="order">
         <button>Complete Order</button>
       </div>
     </form>

@@ -10,7 +10,7 @@ const initialFormValues = {
   pepperoni: false,
   jalapenos: false,
   mushrooms: false,
-  pinapple: false,
+  pineapple: false,
   instructions: ""
 }
 const App = () => {
@@ -30,12 +30,12 @@ const App = () => {
     const newOrder = {
       name: formValues.name,
       size: formValues.size,
-      toppings: ["pepperoni", "jalapenos", "mushrooms", "pinapple"].filter(
+      toppings: ["pepperoni", "jalapenos", "mushrooms", "pineapple"].filter(
         (topping) => formValues[topping]
       ), 
       instructions: formValues.instructions
     }
-    if(!newOrder.name || !newOrder.size || !newOrder.toppings || !newOrder.instructions) return
+    if(!newOrder.name || !newOrder.size ) return
 
     
     setOrders([...orders, newOrder])
