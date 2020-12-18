@@ -60,8 +60,8 @@ const App = () => {
         {orders.map(order=>{
           return <PizzaOrder key={order.id} details={order}/>
         })}
+        </Route>
         
-      </Route>
       <Route path='/'>
         <Home/>
       </Route>
